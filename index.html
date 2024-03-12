@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador De Tarjetas</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    #inputString, #monthSelect, #yearSelect, #cvvInput, #quantityInput {
+        width: calc(100% - 20px); /* El ancho se ajusta para compensar el padding de 10px en cada lado */
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    #generateButton {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    #output {
+        font-size: 1.2em;
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+    }
+    #copyButton {
+        padding: 10px 20px;
+        background-color: #008CBA;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    #telegramButton {
+        padding: 10px 20px;
+        background-color: #008CBA;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+        text-decoration: none; /* Esto eliminará el subrayado del texto */
+    }
+    #copyrightContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5vh; /* Ajusta la altura según tus necesidades */
+    }
+
+    #copyrightMessage {
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generador CC</h1>
+        <img src="cc.png" alt="Descripción de la imagen" width="100">
+    
+        <h2>BIN</h2>
+        <input type="text" id="inputString" placeholder="BIN">
+    
+        <h2>FECHA (MM/AAAA)</h2>
+        <select id="monthSelect">
+            <option value="">Seleccionar Mes</option>
+            <option value="01">01 - Enero</option>
+            <option value="02">02 - Febrero</option>
+            <option value="03">03 - Marzo</option>
+            <option value="04">04 - Abril</option>
+            <option value="05">05 - Mayo</option>
+            <option value="06">06 - Junio</option>
+            <option value="07">07 - Julio</option>
+            <option value="08">08 - Agosto</option>
+            <option value="09">09 - Septiembre</option>
+            <option value="10">10 - Octubre</option>
+            <option value="11">11 - Noviembre</option>
+            <option value="12">12 - Diciembre</option>
+        </select>
+        <select id="yearSelect">
+            <option value="">Seleccionar Año</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2029">2029</option>
+            <option value="2030">2030</option>
+            <option value="2031">2031</option>
+            <option value="2032">2032</option>
+            <!-- Puedes agregar más años si es necesario -->
+        </select>
+    
+        <h2>CVV</h2>
+        <input type="text" id="cvvInput" placeholder="CVV">
+    
+        <h2>Cantidad de Datos a Generar</h2>
+        <input type="number" id="quantityInput" placeholder="Cantidad">
+        <br> <!-- Separación añadida -->
+        <button id="generateButton">Generar Números</button>
+        <button id="copyButton">Copiar Resultados</button>
+        <br> <!-- Separación añadida -->
+        <br> <!-- Separación añadida -->
+        <a href="https://t.me/TecnoMas1" id="telegramButton">Únete al Canal de Telegram</a>
+    
+        <div id="output"></div>
+        <!-- Aquí agregamos el texto -->
+        <h2>Aviso Legal: Generador CC</h2>
+    <p>Este generador de tarjetas de crédito aleatorias ha sido diseñado exclusivamente con fines educativos y éticos, destinado a pruebas de seguridad. No se debe utilizar para ningún propósito ilegal, fraudulento o no autorizado.</p>
+    <!-- Aquí agregamos el texto -->
+    <h2>Propósito Educativo</h2>
+    <p>El propósito principal de este generador es educar a los usuarios sobre los posibles riesgos asociados con la divulgación de información financiera sensible y las vulnerabilidades de seguridad relacionadas con el uso de tarjetas de crédito. Este generador proporciona una representación simulada de datos de tarjetas de crédito con fines educativos, permitiendo a los usuarios comprender mejor cómo funcionan estos sistemas y cómo protegerse contra posibles amenazas de seguridad.</p>
+    <!-- Aquí agregamos el texto -->
+    <h2>Ética y Legalidad</h2>
+    <p>Es fundamental enfatizar que el uso de este generador de tarjetas de crédito aleatorias debe cumplir con todas las leyes y regulaciones aplicables. No se deben realizar transacciones fraudulentas ni actividades ilegales utilizando los datos generados por este servicio. Cualquier uso indebido o ilegal de la información generada por este servicio es estrictamente prohibido y puede acarrear consecuencias legales.<p>
+    <h2>Responsabilidad del Usuario</h2>
+    <p>Los usuarios son completamente responsables de cualquier acción que realicen con la información generada por este servicio. Se recomienda encarecidamente utilizar este generador de tarjetas de crédito exclusivamente con fines educativos y éticos, evitando cualquier actividad que viole la ley o los derechos de terceros.<p>   
+    <h2>Renuncia de Responsabilidad</h2>
+    <p>El equipo responsable de este generador de tarjetas de crédito no asume ninguna responsabilidad por el mal uso de la información proporcionada por este servicio. No se garantiza la precisión ni la validez de los datos generados, y los usuarios deben utilizar la información bajo su propio riesgo y discreción.<p>
+    <p>¡Gracias por su comprensión y cooperación!</p>
+    </div>
+    <br> <!-- Separación añadida -->
+    <br> <!-- Separación añadida -->
+    <!-- Mensaje de derechos de autor -->
+    <div id="copyrightContainer">
+        <div>Copyright © 2024 Todos los derechos reservados - Generador CC</div>
+     </div>
+
+<script>
+    document.getElementById('generateButton').addEventListener('click', function() {
+        var inputString = document.getElementById('inputString').value;
+        var month = document.getElementById('monthSelect').value;
+        var year = document.getElementById('yearSelect').value;
+        var cvv = document.getElementById('cvvInput').value;
+        var quantity = parseInt(document.getElementById('quantityInput').value);
+
+        var output = "";
+
+        for (var j = 0; j < quantity; j++) {
+            // Generar un nuevo conjunto de datos para cada línea
+            var tempInputString = inputString;
+            var tempMonth = month;
+            var tempYear = year;
+            var tempCvv = cvv;
+
+            // Generar números aleatorios para las 'x' en el BIN
+            var tempOutput = "";
+            for (var i = 0; i < tempInputString.length; i++) {
+                if (tempInputString[i] === 'x') {
+                    tempOutput += Math.floor(Math.random() * 10); // Generar un número aleatorio del 0 al 9
+                } else {
+                    tempOutput += tempInputString[i];
+                }
+            }
+
+            tempOutput += "|";
+
+            // Si no se selecciona ningún mes, generar un mes aleatorio
+            if (tempMonth === "") {
+                tempMonth = String(Math.floor(Math.random() * 12) + 1).padStart(2, '0');
+            }
+
+            // Si no se selecciona ningún año, generar un año aleatorio
+            if (tempYear === "") {
+                tempYear = String(Math.floor(Math.random() * (2032 - 2024 + 1)) + 2024);
+            }
+
+            tempOutput += tempMonth + "|" + tempYear;
+
+            // Si no se proporciona ningún CVV, generar uno aleatorio
+            if (tempCvv === "") {
+                tempCvv = Math.floor(Math.random() * 1000).toString().padStart(3, '0'); // Generar un número aleatorio de 3 dígitos
+            }
+
+            tempOutput += "|" + tempCvv;
+
+            output += tempOutput + "<br>"; // Agregamos "<br>" al final de cada resultado
+        }
+
+        document.getElementById('output').innerHTML = output;
+    });
+
+    document.getElementById('copyButton').addEventListener('click', function() {
+        var outputDiv = document.getElementById('output');
+        var range = document.createRange();
+        range.selectNode(outputDiv);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+
+        try {
+            // Intentar copiar el texto seleccionado
+            var successful = document.execCommand('copy');
+            var message = successful ? '¡Los resultados han sido copiados!' : 'Error al intentar copiar los resultados';
+            alert(message);
+        } catch (err) {
+            console.error('Error al intentar copiar los resultados: ', err);
+        }
+
+        // Limpiar la selección
+        window.getSelection().removeAllRanges();
+    });
+
+</script>
+</body>
+</html>
